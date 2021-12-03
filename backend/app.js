@@ -4,10 +4,34 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require("mongoose");
+const dotenv = require('dotenv');
+
+
+dotenv.config();
+
+//database connectivity
+var connect = mongoose.connect(process.env.MONGO_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology:true
+});
+connect
+  .then(()=>console.log("DB successsfully connected"))
+  .catch((err)=>{
+    console.log(err);
+  });
+
+
 var indexRouter = require('./routes/index');
+var authRouter = require("./routes/auth");
 var usersRouter = require('./routes/users');
+var productRouter = require('./routes/product');
+var cartRouter = require('./routes/cart');
+var orderRouter = require('./routes/order');
+
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +44,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/auth',authRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/products', productRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
