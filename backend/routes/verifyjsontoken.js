@@ -30,7 +30,7 @@ const verifyTokenAndAdmin = (req,res,next)=>{
         if(req.user.isAdmin){
             next();
         }else{
-            res.status(403).json("You are not authorised to perform the task!");
+            res.status(403).json("You are not authorised to perform the task,only admin is!");
         }
     });
 };
