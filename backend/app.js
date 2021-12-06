@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
@@ -28,6 +29,7 @@ var usersRouter = require('./routes/users');
 var productRouter = require('./routes/product');
 var cartRouter = require('./routes/cart');
 var orderRouter = require('./routes/order');
+var paymentRouter = require("./routes/stripe");
 
 
 var app = express();
@@ -42,6 +44,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/api/auth',authRouter);
@@ -49,6 +52,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/products', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/checkout', paymentRouter);
 
 
 // catch 404 and forward to error handler
