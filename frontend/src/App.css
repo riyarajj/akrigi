@@ -1,4 +1,24 @@
-
+body{
+    background:white   ;
+    font-weight: bold;
+}
+/* .navbarcolor{
+    background-color: #EBBBB0;
+} */
+.brandname
+{
+    font-size: x-large;
+    font-family: 'Courgette', cursive ;
+}
+.linkstyle{
+    font-family: sans-serif;
+}
+.footerbg{
+    background-color: black;
+}
+a{
+    text-decoration: none;
+}
 .container{
   margin: auto;
   width: max-content;
