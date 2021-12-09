@@ -19,3 +19,44 @@ body{
 a{
     text-decoration: none;
 }
+.container{
+  margin: auto;
+  width: max-content;
+}
+@media (min-width:700px) {
+  .box{
+    display: flex;
+    float: left;
+  }
+}
+.box{
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;  
+  margin: 10px;
+}
+.image{
+  height: 200px;
+  width: 200px;
+}
+.image:hover{
+ backdrop-filter: blur(10px);
+ filter: blur(4px);
+ transition: 0.4s ease-in 0s;
+}
+span{
+  color: black;
+  position: absolute;
+  display: none;
+  margin-top: 10%;
+  font-weight: bold;
+  font-family: cursive;
+  font-style: italic;
+  font-size: 2rem;
+  z-index: 5;
+}
+.box:hover > span{
+  display: block;
+}
