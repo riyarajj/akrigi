@@ -1,17 +1,15 @@
-body{
-    background:white   ;
-}
+
 .navbarstyle{
     background-color: #EBBBB0;
     font-weight: bold;
 }
-@font-face {
+/* @font-face {
     font-family: "moontime";
     src: local("moontime"),
-     url("./font/moontime.ttf") format("truetype");
+     url("./font/moontime.ttf") format("truetype"); 
     font-weight: bolder;
     
-    }
+    } */
     
 .brandname
 {
@@ -34,11 +32,7 @@ a{
    font-family: sans-serif;
   
 }
-.container{
-  margin: auto;
-  width: max-content;
-}
-@media (min-width:700px) {
+@media (min-width:768px) {
   .box{
     display: flex;
     float: left;
@@ -65,7 +59,7 @@ span{
   color: black;
   position: absolute;
   display: none;
-  margin-top: 10%;
+  margin-top: 5%;
   font-weight: bold;
   font-family: cursive;
   font-style: italic;
@@ -74,4 +68,10 @@ span{
 }
 .box:hover > span{
   display: block;
+}
+.links{
+  color: black;
+}
+.links:hover{
+  color:black;
 }
