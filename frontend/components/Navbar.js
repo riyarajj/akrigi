@@ -32,13 +32,13 @@ const Navbartask = () => {
 
   //Register modal
 
-  // const [show, setShow] = useState(false);
+  const [Regshow, RegsetShow] = useState(false);
 
-  // const ReghandleClose = () => setShow(false);
-  // const ReghandleShow = () => setShow(true);
+  const ReghandleClose = () => RegsetShow(false);
+  const ReghandleShow = () => RegsetShow(true);
 
   return (
-    <div className="navbarcolor">
+    <div className="navbarstyle">
     <Container >
       <Navbar collapseOnSelect expand="lg"  >
   <Navbar.Brand className="brandname" href="#home" >Akrigi</Navbar.Brand>
@@ -46,11 +46,9 @@ const Navbartask = () => {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="ms-auto">
       <Nav.Link className="text-dark linkstyle " onClick={handleShow} ><FiLogIn className="mx-1" />Login</Nav.Link>
-      
-      <Nav.Link className="text-dark linkstyle " ><FiUserPlus className="mx-1" />Register</Nav.Link>
-    </Nav>
-  </Navbar.Collapse>
-  <Modal show={show} onHide={handleClose} className="modalback">
+
+      {/* LOGIN MODAL */}
+      <Modal show={show} onHide={handleClose} className="modalback">
         <Modal.Header closeButton className="modallook modalfont">
           <Modal.Title>SignIn</Modal.Title>
         </Modal.Header>
@@ -96,9 +94,59 @@ const Navbartask = () => {
         </Modal.Body>
         <Modal.Footer className="modallook">
           <p>Already a member?</p>
+          <a onClick={ReghandleShow}><Button variant="primary">Register</Button></a>
+        </Modal.Footer>
+      </Modal>
+
+      {/* END OF LOGIN MODAL */}
+      
+      <Nav.Link className="text-dark linkstyle " onClick={ReghandleShow}><FiUserPlus className="mx-1" />Register</Nav.Link>
+
+      {/* REGISTER MODAL */}
+
+
+      <Modal show={Regshow} onHide={ReghandleClose} className="modalback">
+        <Modal.Header closeButton className="modallook modalfont">
+          <Modal.Title>Register</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modallook">
+        <Form>
+        <InputGroup className="mb-3">
+    <InputGroup.Text id="basic-addon1"><MdEmail/></InputGroup.Text>
+    <Form.Control placeholder="Email"/>
+  </InputGroup>
+
+  <InputGroup className="mb-3">
+    <InputGroup.Text id="basic-addon1"><FaLock/></InputGroup.Text>
+    <Form.Control placeholder="Password"/>
+  </InputGroup>
+  
+  <div className="d-grid gap-2">
+  <Button variant="primary" size="lg">
+    Register
+  </Button>
+  <div className="text-center">
+  <MDBCol  className='mb-4 mb-md-0'>
+            <h5 className='text-small linkstyle mb-3'>or Signin with</h5>
+              <a href="#" className="text-white mx-2 "><BsFacebook size={40} color="#3b5998" /></a>
+              <a href="#" className="text-white mx-2" ><FcGoogle size={40} color="black" /></a>
+              
+          </MDBCol>
+</div>
+</div>
+</Form>
+
+        </Modal.Body>
+        <Modal.Footer className="modallook">
+          <p>Already a member?</p>
           <Button variant="primary">Register</Button>
         </Modal.Footer>
       </Modal>
+
+      {/* END OF REGISTER MODAL */}
+    </Nav>
+  </Navbar.Collapse>
+  
 </Navbar>
     </Container>
     </div>

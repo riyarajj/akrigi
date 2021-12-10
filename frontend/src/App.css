@@ -1,23 +1,38 @@
 body{
     background:white   ;
+}
+.navbarstyle{
+    background-color: #EBBBB0;
     font-weight: bold;
 }
-/* .navbarcolor{
-    background-color: #EBBBB0;
-} */
+@font-face {
+    font-family: "moontime";
+    src: local("moontime"),
+     url("./font/moontime.ttf") format("truetype");
+    font-weight: bolder;
+    
+    }
+    
 .brandname
 {
-    font-size: x-large;
-    font-family: 'Courgette', cursive ;
+    font-size :40px;
+    font-family:"moontime";
+    
 }
 .linkstyle{
     font-family: sans-serif;
 }
 .footerbg{
-    background-color: black;
+    background-color: #B95C50;
 }
 a{
     text-decoration: none;
+    font-family:sans-serif;
+}
+.modallook{
+   background-color: #F9F1F0;
+   font-family: sans-serif;
+  
 }
 .container{
   margin: auto;
