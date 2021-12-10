@@ -5,10 +5,19 @@ body{
     background-color: #EBBBB0;
     font-weight: bold;
 }
+@font-face {
+    font-family: "moontime";
+    src: local("moontime"),
+     url("./font/moontime.ttf") format("truetype");
+    font-weight: bolder;
+    
+    }
+    
 .brandname
 {
-    font-size: x-large;
-    font-family: 'moontime' ;
+    font-size :40px;
+    font-family:"moontime";
+    
 }
 .linkstyle{
     font-family: sans-serif;
