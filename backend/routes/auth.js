@@ -5,6 +5,7 @@ const CryptoJS = require('crypto-js');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
+router.use(bodyParser.json());
 //register
 router.post("/register", async(req,res)=>{
     const newUser = new User({
