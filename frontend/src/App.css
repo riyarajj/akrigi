@@ -1,23 +1,8 @@
-body{
-    background:white   ;
-}
+
 .navbarstyle{
     background-color: #EBBBB0;
     font-weight: bold;
-}
-@font-face {
-    font-family: "moontime";
-    src: local("moontime"),
-     url("./font/moontime.ttf") format("truetype");
-    font-weight: bolder;
-    
-    }
-    
-.brandname
-{
-    font-size :40px;
-    font-family:"moontime";
-    
+
 }
 .linkstyle{
     font-family: sans-serif;
@@ -34,44 +19,93 @@ a{
    font-family: sans-serif;
   
 }
-.container{
+.containerlandingPage{
+  height:auto;
   margin: auto;
+  margin-Top:10vh;
+  margin-bottom: 10vh;
   width: max-content;
-}
-@media (min-width:700px) {
-  .box{
-    display: flex;
-    float: left;
-  }
-}
-.box{
-  height: 200px;
-  width: 200px;
   display: flex;
-  justify-content: center;
-  padding: 10px;  
-  margin: 10px;
+  flex-direction: row;
 }
-.image{
-  height: 200px;
-  width: 200px;
+
+.box{
+  height: 300px;
+  width: 300px;
+  display: flex;
+  padding: 20px;  
+  margin: 30px;
 }
-.image:hover{
+.boxImage{
+  height: 300px;
+  width: 300px;
+}
+.boxImage:hover{
  backdrop-filter: blur(10px);
  filter: blur(4px);
- transition: 0.4s ease-in 0s;
+ transition: 0.5s ease-in 0s;
 }
 span{
   color: black;
   position: absolute;
   display: none;
-  margin-top: 10%;
+  margin: 90px 80px;
   font-weight: bold;
   font-family: cursive;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 2.5rem;
   z-index: 5;
 }
 .box:hover > span{
   display: block;
+}
+.links{
+  color: black;
+}
+.links:hover{
+  color:black;
+}
+
+.slide{
+  height:70vh;
+  align-items: center;
+  display: flex;
+}
+.text{
+  margin: auto ;
+  padding:50px;
+  align-items: center;
+}
+.slideTitle{
+   text-align: center;
+  font-weight: bolder;
+  font-size: 65px;
+  margin:10px;
+  font-family: 'Playfair Display', serif;
+}
+.slideDesc{
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 20px;
+  margin:10px;
+  padding:10px;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+}
+
+@media (max-width:998px) {
+  .containerlandingPage{
+    display: block;
+  }
+  .box{
+    display: flex;
+    flex-direction: column;
+  }
+  .slideImg{
+    width:400px;
+    height: 550px;
+  }
+  .slideTitle{
+    font-size: xx-large;
+  }
 }
