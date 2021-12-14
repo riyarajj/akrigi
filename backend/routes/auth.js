@@ -1,61 +1,114 @@
 var express = require('express');
-var router = express.Router();
 var bodyParser = require("body-parser");
-const CryptoJS = require('crypto-js');
-const User = require('../models/User');
-const jwt = require('jsonwebtoken');
+const passport = require('passport');
+var router = express.Router();
+const User = require("../models/User");
+const verify = require('./verifyjsontoken');
 
 router.use(bodyParser.json());
-//register
-router.post("/register", async(req,res)=>{
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: CryptoJS.AES.encrypt(
-            req.body.password,
-            process.env.PASS_SEC
-        ).toString()
-    });
 
-    try{
-        const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
-    }catch(err){
-        res.status(500).json(err);
-    }
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
 });
- 
-//login
-router.post("/login", async(req,res)=>{
-    try{
-        const user = await User.findOne({username: req.body.username});
 
-        //retrieve password from db
-        const hashedPassword = CryptoJS.AES.decrypt(
-            user.password,
-            process.env.PASS_SEC
-        );
-        //convert hashed password to original string
-        const ori_password = hashedPassword.toString(CryptoJS.enc.Utf8);
-        //check if credentials are correct
-        ori_password !== req.body.password &&
-         res.status(401).json("Wrong Credentials");
+//Register the user router
 
-        //providing jst token for user verification
-        const accessToken = jwt.sign({
-            id: user._id,
-            isAdmin: user.isAdmin
-        },process.env.JWT_SEC,{
-            expiresIn:"3d"
+router.post("/register",(req,res,next)=>{
+    const Users = new User({
+        email:req.body.email,
+        username:req.body.username,
+        firstName:req.body.firstName,
+        lastName: req.body.lastName
+    });
+  User.register(Users,
+    req.body.password, (err,user)=>{
+      if(err){
+        res.statusCode = 500;
+        res.setHeader("Content-Type","application/json");
+        res.json({err: err});
+      }else{
+        user.save((err,user)=>{
+          if(err){
+            res.statusCode = 500;
+            res.setHeader("Content-Type","application/json");
+            res.json({err: err});
+            return;
+          }
+          passport.authenticate("local")(req,res,() => {
+            res.statusCode = 200;
+            res.setHeader("Content-Type","application/json");
+            res.json({
+              status:"Registration Successfully Done!",
+              user: user,
+              success: true
+            });
+          });
         });
+      }
+    });
+});
 
-        //hide password from displaying
-        const {password, ...others} = user._doc;
-        //user matches or user exist
-        res.status(200).json({...others, accessToken});
+//login the existing user
+router.post("/login",(req,res,next)=>{
+    
+  passport.authenticate("local",(err,user,info)=>{
+    if(err)
+      return next(err);
+    if(!user){
+      res.statusCode = 401;
+      res.setHeader("Content-Type","application/json");
+      res.json({
+        success: false,
+        status: "Login Unsuccessfull!",
+        err: info
+      });
+    }req.login(user,(err)=>{
+      if(err){
+        res.statusCode = 401;
+        res.setHeader("Content-Type","application/json");
+        res.json({
+          success: false,
+          status: "Login Unsuccessfull!",
+          err:"Could not login user!"
+        });
+      }
+      var token = verify.getToken({_id: user._id,username: user.username});
+      res.statusCode = 200;
+        res.setHeader("Content-Type","application/json");
+        res.json({
+          success: true,
+          status: "Login Successfull!",
+          token: token,
+          user:user.username
+        });
+    });
+  })(req,res,next);
+});
 
-    }catch(err){
-        res.status(500).json(err);
+//check jwt token
+
+router.get("/checkJwt",(req,res)=>{
+  passport.authenticate("jwt",{session:false},(err,user,info)=>{
+    if(err) return next(err);
+    if(!user){
+      res.statusCode = 401;
+        res.setHeader("Content-Type","application/json");
+        res.json({
+          success: false,
+          status: "Token invalid!",
+          err: info
+        });
     }
+    else{
+      res.statusCode = 200;
+        res.setHeader("Content-Type","application/json");
+        res.json({
+          success: true,
+          status: "token valid!",
+          user: user
+        });
+      }
+  })(req,res);
 });
 module.exports = router;
