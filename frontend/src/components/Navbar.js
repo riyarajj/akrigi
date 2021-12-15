@@ -46,6 +46,8 @@ const Navbartask = () => {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="ms-auto">
+    {!localStorage.getItem('token')?(<p>{''}</p>)
+    :(<p style={{display:"flex",margin:'13px',fontFamily:"cursive"}}>welcome back! {localStorage.getItem('user')}</p>)}
     {!localStorage.getItem('token')?
     (<Nav.Link className="text-dark linkstyle " onClick={handleShow} ><FiLogIn className="mx-1" />Login</Nav.Link>):
     (<Button onClick={()=>logout()} className = "logoutbtn">LOGOUT</Button>)}
