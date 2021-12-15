@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require("body-parser");
 const User = require("../models/User");
-const {verifyTokenAndAdmin, verifyTokenAndAuth}=require('./verifyjsontoken');
+const verify=require('./verifyjsontoken');
  
 router.use(bodyParser.json());
 
 //UPDATE user deatils like username,password 
-router.put("/:id",verifyTokenAndAuth , async(req,res)=>{
+router.put("/:id",verify.verifyUser , async(req,res,next)=>{
   if(req.body.password){
     req.body.password = CryptoJS.AES.encrypt(
       req.body.password,
@@ -28,7 +28,7 @@ router.put("/:id",verifyTokenAndAuth , async(req,res)=>{
 });
 
 //delete
-router.delete("/:id",verifyTokenAndAuth,async (req,res)=>{
+router.delete("/:id",verify.verifyAdmin,async (req,res)=>{
   try{
     await User.findByIdAndDelete(req.params.id);
     res.status(200).json("User has been successfully deleted!");
@@ -39,7 +39,7 @@ router.delete("/:id",verifyTokenAndAuth,async (req,res)=>{
 });
 
 //get user by id
-router.get("/find/:id",verifyTokenAndAdmin ,async (req,res)=>{
+router.get("/find/:id",verify.verifyUser ,async (req,res)=>{
   try{
     const user = await User.findById(req.params.id);
 
@@ -55,7 +55,7 @@ router.get("/find/:id",verifyTokenAndAdmin ,async (req,res)=>{
 });
 
 //get all users
-router.get("/",verifyTokenAndAdmin ,async (req,res)=>{
+router.get("/",verify.verifyUser ,async (req,res)=>{
   const query = req.query.new;
   try{
     const users = query 

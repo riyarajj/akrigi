@@ -8,7 +8,7 @@ import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
 
 const Footer = () => {
     return (
-        <MDBFooter className='text-white text-center text-lg-left footerbg fixed-bottom' >
+        <MDBFooter className='text-white text-center text-lg-left footerbg' >
       <MDBContainer className='p-4'>
         <MDBRow>
           <MDBCol lg='3' md='12' className='mb-4 mb-md-0'>

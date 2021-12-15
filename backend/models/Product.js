@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 var ProductSchema = new Schema({
     name: {
         type: String,
-        required: true,
-        unique:true
+        required: true
     },
     desc: {
         type: String,
@@ -22,6 +21,10 @@ var ProductSchema = new Schema({
         type: Number,
         required:true
     },
+    seller:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 },{
     timestamps: true
 });

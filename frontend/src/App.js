@@ -6,8 +6,24 @@ import Home from './pages/Home';
 
 import { Landing } from './Landing';
 import LandingPage from "./pages/landingPage";
+import Register from "./pages/Register";
+import {useEffect} from "react";
+import {logoutUser, verifyToken} from "./services/api";
+import SellingForm from "./pages/SellForm";
 
 function App() {
+  useEffect(()=>{
+    const checkToken = async()=>{
+      if(localStorage.getItem("token")!==null){
+        let data = await verifyToken();
+        if(!data.success){
+          await logoutUser();
+          window.location.reload();
+        }
+      }
+    }
+    checkToken()
+  },[])
   return (
   <Router>
     <Navbartask/>
@@ -15,6 +31,8 @@ function App() {
         <Route exact path="/" element = {<Landing/>}></Route>
         <Route exact path="/LandingPage" element = {<LandingPage/>}></Route>
         <Route path="/homepage" element = {<Home/>}></Route>
+        <Route path="/register" element = {<Register/>}></Route>
+        <Route path="/sellForm" element = {<SellingForm/>}></Route>
       </Routes>
     <Footer/>
   </Router>
