@@ -22,7 +22,7 @@ const handleSubmitRegister = async ()=>{
     if(username !== '' && email !=='' && password!==""  && firstName!=="" && lastName!==""){
         if(password===cPassword){
             await registerUser({username,email,password,firstName,lastName});
-            window.location.replace("/")
+            window.location.replace("/landingPage")
         }else{
             alert("Password and confirm password are not same!")
         }

@@ -42,7 +42,7 @@ const Navbartask = () => {
       <Navbar collapseOnSelect expand="lg"  >
       <Container >
   <Navbar.Brand href="#" >
-    <Link to = "/homepage" ><img width="200px" height=" 50px" src = "/akrigiLogo.jpg" alt='logo' className='img-responsive' /></Link></Navbar.Brand>
+    <Link to = "/landingPage" ><img width="200px" height=" 50px" src = "/akrigiLogo.jpg" alt='logo' className='img-responsive' /></Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="ms-auto">
