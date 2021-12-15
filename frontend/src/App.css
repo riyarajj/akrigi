@@ -109,3 +109,17 @@ span{
     font-size: xx-large;
   }
 }
+
+.logoutbtn{
+  background-color: #EBBBB0;
+  width: 150px;
+  border: none;
+  margin: 5px;
+  color:black;
+  font-family: cursive;
+}
+.logoutbtn:hover{
+  background-color: whitesmoke;
+  color: black;
+  border: none;
+}
