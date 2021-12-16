@@ -4,7 +4,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit'
 import "../App.css"
 import { BsFacebook,BsPinterest } from "react-icons/bs";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
-
+import {Link} from "react-router-dom"
 
 const Footer = () => {
     return (
@@ -67,9 +67,9 @@ const Footer = () => {
             
             <ul className='list-unstyled'>
               <li>
-                <a href='#!' className='text-white linkstyle'>
+                <Link to="/aboutus" className="links" style={{color:"white"}}>
                   About Us
-                </a>
+                  </Link>
               </li>
               <li>
                 <a href='#!' className='text-white linkstyle'>
@@ -87,9 +87,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href='#!' className='text-white linkstyle'>
+                <Link to="/contactus" className="links"  style={{color:"white"}}>
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </MDBCol>

@@ -10,6 +10,8 @@ import Register from "./pages/Register";
 import {useEffect} from "react";
 import {logoutUser, verifyToken} from "./services/api";
 import SellingForm from "./pages/SellForm";
+import Aboutus from "./pages/Aboutus";
+import Contactus from "./pages/Contactus";
 
 function App() {
   useEffect(()=>{
