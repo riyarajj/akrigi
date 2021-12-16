@@ -3,9 +3,10 @@ import React from 'react'
 import { useState } from "react";
 import {Nav ,Navbar,Container,Row,Modal,Button,Form,InputGroup, FormControl, FormGroup} from 'react-bootstrap';
 import {  MDBCol} from 'mdb-react-ui-kit';
-import { BsFacebook} from "react-icons/bs";
+import { BsFacebook, BsFillPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FiLogIn} from "react-icons/fi";
+import { MdPassword } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import '../App.css'
 import {loginUser, logoutUser} from '../services/api';
@@ -60,13 +61,13 @@ const Navbartask = () => {
         <Modal.Body className="modallook">
         <Form>
           <Row className="align-items-center">
-              <InputGroup className="mb-4">
+              <InputGroup className="mb-4"  ><InputGroup.Text id="basic-addon1"><BsFillPersonFill/></InputGroup.Text>
                 <FormControl id="inlineFormInputGroup" 
                 placeholder='Username' name="username" type ="text"
                 onChange = {(e)=>setUsername(e.target.value)}
                 required/>
               </InputGroup>
-              <InputGroup className="mb-4">
+              <InputGroup className="mb-4" ><InputGroup.Text id="basic-addon1"><MdPassword/></InputGroup.Text>
                 <FormControl id="inlineFormInputGroup" 
                 placeholder='Password' name="password"
                 onChange = {(e)=>setpass(e.target.value)}

@@ -87,7 +87,7 @@ p{
  filter: blur(4px);
  transition: 0.5s ease-in 0s;
 }
-span{
+.boxText{
   color: black;
   position: absolute;
   display: none;
