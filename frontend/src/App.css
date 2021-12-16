@@ -53,6 +53,14 @@ a{
    font-family: sans-serif;
   
 }
+p{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.us{
+  background-color: #F9F1F0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .containerlandingPage{
   height:auto;
   margin: auto;

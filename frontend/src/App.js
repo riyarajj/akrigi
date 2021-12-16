@@ -32,6 +32,8 @@ function App() {
         <Route path="/landingPage" element = {<LandingPage/>}></Route>
         <Route path="/homepage" element = {<Home/>}></Route>
         <Route path="/register" element = {<Register/>}></Route>
+        <Route path="/aboutus" element = {<Aboutus/>}></Route>
+        <Route path="/contactus" element = {<Contactus/>}></Route>
         <Route path="/sellForm" element = {<SellingForm/>}></Route>
       </Routes>
     <Footer/>
