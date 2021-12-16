@@ -11,11 +11,12 @@ var ProductSchema = new Schema({
         required:true
     },
     category:{
-        type:Array,
+        type:String,
+        required:true
     },
-    image:{
-        type: Boolean,
-        default: false,
+    images:{
+        type: [],
+        required:true
     },
     price:{
         type: Number,
