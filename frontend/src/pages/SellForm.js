@@ -9,7 +9,7 @@ const SellingForm = ()=>{
     const [price,setPrice] = useState(0);
     const [category,setCategory] = useState('');
     const [files, setFiles] = useState();
-    const [image,setImage] = useState([]);
+    const [image,setImage] = useState();
     const handleChange =(e)=>{
         if(!e.target.files || e.target.files.length === 0) {
             setFiles(undefined);
@@ -67,13 +67,13 @@ const SellingForm = ()=>{
                     fontSize:"2.5rem",
                     color:"brown"}}>Create Your Post!</h1>
                     <Row className="align-items-center">
-                    { files && image.map((imgsrc)=>
-                    (<img src={`${imgsrc}`} alt="error" style={{
+                     { files && image &&  image.map((imgsrc)=>
+                    (<img src={imgsrc} alt="error" style={{
                         height:'250px',
                         width:"250px",
                         margin:"auto",
                         padding:"10px"}}
-                    />))}  
+                    />))}   
                         
                         <InputGroup className="mb-4">
                             <FormControl id="inlineFormInputGroup" 
