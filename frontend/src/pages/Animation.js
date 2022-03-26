@@ -78,7 +78,7 @@ export function Animation() {
             transition: { duration: 3, ease: "easeInOut", delay: 3 },
           }}
         >
-          Thrift is new trend
+          Thrift is the new Rift
         </motion.h5>
         <motion.div
           className="button-div"
