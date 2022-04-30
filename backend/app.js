@@ -27,7 +27,9 @@ connect
 var indexRouter = require('./routes/index');
 var authRouter = require("./routes/auth");
 var usersRouter = require('./routes/users');
+var ngoRouter = require('./routes/ngo');
 var productRouter = require('./routes/product');
+var donateRouter = require('./routes/donate');
 var cartRouter = require('./routes/cart');
 var orderRouter = require('./routes/order');
 var paymentRouter = require("./routes/stripe");
@@ -51,7 +53,9 @@ app.use(passport.initialize())
 app.use('/', indexRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/ngos', ngoRouter);
 app.use('/api/products', productRouter);
+app.use('/api/donate', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 app.use('/api/checkout', paymentRouter);
