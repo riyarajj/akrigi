@@ -12,6 +12,8 @@ import {logoutUser, verifyToken} from "./services/api";
 import SellingForm from "./pages/SellForm";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
+import DonationForm from "./pages/Donate";
+import NGORegisterationForm from "./pages/NGORegistrationForm";
 
 function App() {
   useEffect(()=>{
@@ -37,6 +39,8 @@ function App() {
         <Route path="/aboutus" element = {<Aboutus/>}></Route>
         <Route path="/contactus" element = {<Contactus/>}></Route>
         <Route path="/sellForm" element = {<SellingForm/>}></Route>
+        <Route path="/donateForm" element = {<DonationForm/>}></Route>
+        <Route path="/registerngo" element = {<NGORegisterationForm/>}></Route>
       </Routes>
     <Footer/>
   </Router>
