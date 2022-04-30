@@ -35,7 +35,7 @@ router.post("/register",(req,res,next)=>{
             res.json({err: err});
             return;
           }
-          passport.authenticate("local")(req,res,() => {
+          passport.authenticate("userlocal")(req,res,() => {
             res.statusCode = 200;
             res.setHeader("Content-Type","application/json");
             res.json({
@@ -52,7 +52,7 @@ router.post("/register",(req,res,next)=>{
 //login the existing user
 router.post("/login",(req,res,next)=>{
     
-  passport.authenticate("local",(err,user,info)=>{
+  passport.authenticate("userlocal",(err,user,info)=>{
     if(err)
       return next(err);
     if(!user){

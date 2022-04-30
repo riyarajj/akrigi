@@ -28,6 +28,6 @@ var UserSchema = new Schema({
     timestamps: true
 });
 
-UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose,{usernameField:'email'});
 
 module.exports = mongoose.model("User",UserSchema);

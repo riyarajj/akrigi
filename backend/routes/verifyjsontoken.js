@@ -5,7 +5,7 @@ const JwtStatergy = require("passport-jwt").Strategy;
 const extractJwt = require("passport-jwt").ExtractJwt;
 const jwt = require('jsonwebtoken');
 
-exports.local = passport.use(new LocalStatergy(User.authenticate()));
+exports.userlocal = passport.use("userlocal",new LocalStatergy({usernameField:'email'},User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
