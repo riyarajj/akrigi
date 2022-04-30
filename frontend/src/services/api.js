@@ -15,6 +15,19 @@ export const createPost = async (data)=>{
     }
 };
 
+export const createDonationPost = async (data)=>{
+    try{
+        return await axios.post(`${url}/donate`,data,{
+            headers:{
+                Authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+        })
+    }
+    catch(err){
+        console.log('error while posting ',err);
+    }
+};
+
 export const loginUser = async ({username,password})=>{
     try{
         await axios.post(`${url}/auth/login`,{username,password})
@@ -57,5 +70,23 @@ export const verifyToken = async () =>{
         return response.data;
     }catch(err){
         console.log("error while checking ",err);
+    }
+};
+
+export const registerNgo = async ({username,email,password,site,mob})=>{
+    try{
+        const response = await axios.post(`${url}/ngos/register`,{username,email,site,mob,password})
+        console.log(response.data);
+    }catch(err){
+        console.log('error while registering ngo ',err);
+    }
+};
+export const ngoList =async ()=>{
+    try{
+        const response = await axios.get(`${url}/ngos`);
+        return response.data;
+
+    }catch(err){
+        console.log("error while fetching ngo list ",err);
     }
 };
