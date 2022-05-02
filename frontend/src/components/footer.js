@@ -72,19 +72,19 @@ const Footer = () => {
                   </Link>
               </li>
               <li>
-                <a href='#!' className='text-white linkstyle'>
+                      <Link to="/termsandcondition"  style={{color:"white"}}>
                   Terms and Condition
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#!' className='text-white linkstyle'>
+              <Link to="/faqs"  style={{color:"white"}}>
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#!' className='text-white linkstyle'>
+              <Link to="/returnpolicy"  style={{color:"white"}}>
                   Return Policy
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/contactus" className="links"  style={{color:"white"}}>
