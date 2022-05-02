@@ -107,9 +107,9 @@ const Footer = () => {
             </MDBRow>
             <MDBRow className="my-2">
             <h5 className='text-uppercase linkstyle my-2'>Donate on akrigi</h5>
-              <a href="#" className="text-white mx-2">List of NGOs</a>
+              <Link to="/donate" className="links"  style={{color:"white"}}>Donate</Link>
               <Link to="/registerngo" className="links"  style={{color:"white"}}>Register NGO</Link>
-              <a href="#" className="text-white mx-2" >Authentication Certificate</a>
+              <Link to="/listofNGOs" className="links"  style={{color:"white"}}>List of NGOs</Link>
             
             </MDBRow>
               
