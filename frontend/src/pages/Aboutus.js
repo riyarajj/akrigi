@@ -27,7 +27,7 @@ const Aboutus = () => {
                 </Col>
             </Row>
             <br/>
-            <Row className='mx-5 px-5 py-5'>
+            <Row className='px-5 py-5 textreponsive'>
             
                 <div id="readmore" className=' justify-content-md-center'>
                     <p>If you've ever heard someone say they're going to go thrifting, you might be wondering what they mean. Simply put, thrifting means to go shopping at a thrift store, garage sale, or flea market where you'll find gently used items at discounted prices. Thrift-shopping is a great way to buy resale high-end clothing and accessories well below retail prices.​</p>
